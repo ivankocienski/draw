@@ -7,6 +7,4 @@
   :dependencies '(:cl-opengl)
   :components ((:module "src"
 			:components ((:file "package")
-				     (:file "draw")
-				     (:file "demo")))))
-
+				     (:file "draw")))))
