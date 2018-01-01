@@ -125,7 +125,7 @@
 				     appending (multiple-value-bind (color count) (decode-rle b)
 						 (repeat-pixel color (1+ count)))))))
 
-(defun init-font ()
+(defun -init-font ()
 
   (setf *font-surface* (first (gl:gen-textures 1))
 	*font-list* (gl:gen-lists 128))
@@ -191,7 +191,7 @@
   (gl:enable :BLEND)
   (gl:blend-func :SRC-ALPHA :ONE-MINUS-SRC-ALPHA)
   
-  (init-font)
+  (-init-font)
 
   (gl:list-base *font-list*))
 
