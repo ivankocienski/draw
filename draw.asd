@@ -4,7 +4,7 @@
   :author "Ivan Kocienski"
   :license "MIT"
   :serial t
-  :dependencies '(:cl-opengl)
+  :depends-on (:cl-opengl)
   :components ((:module "src"
 			:components ((:file "package")
 				     (:file "draw")))))
