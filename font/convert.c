@@ -36,6 +36,7 @@ unsigned char* readBMP(char* filename, int *o_width, int *o_height)
 }
 
 int total_count = 0;
+int byte_len = 0;
 
 void print_pixel(int color, int count) {
   static int newline = 1;
@@ -43,8 +44,9 @@ void print_pixel(int color, int count) {
   unsigned char packed;
 
   packed = (color & 128) | (count & 127);
-  printf("#x%02x%s", packed, (newline & 15) ? " " : " \n");
+  printf("0x%02x,%s", packed, (newline & 15) ? " " : " \n");
 
+  byte_len++;
   total_count += count + 1;
 
   newline++;
@@ -105,6 +107,8 @@ int main(int argc, char ** argv) {
   }
 
   print_pixel(run_color, count);
+  printf("\n");
+  printf("bytes=%d\n", byte_len);
 
   printf("total=%d\n", total_count);
 
