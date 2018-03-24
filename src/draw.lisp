@@ -258,7 +258,13 @@
 
 (defun sub-region (x y w h function)
   (gl:with-pushed-matrix
-    (gl:scissor x (- +YRES+ (+ y h)) w h)
+    (gl:scissor x (- *draw-height* (+ y h)) w h)
     (gl:translate x y 0)
       
-    (funcall function)))
+    (funcall function)
+    
+    (gl:scissor 0 0 *draw-width* *draw-height*)))
+
+(defmacro with-sub-region (x y w h &body body)
+  `(sub-region ,x ,y ,w ,h
+               (lambda () ,@body)))

@@ -10,4 +10,5 @@
 	   :texture-box
 	   :circle
 	   :text
-	   :sub-region))
+	   :sub-region
+     :with-sub-region))
